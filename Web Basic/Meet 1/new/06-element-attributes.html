@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06 · Element Attributes</title>
+    <link rel="stylesheet" href="06-element-attributes.css">
+</head>
+<body>
+    <header class="header">
+        <h1>06 · Element Attributes</h1>
+        <p class="subtitle">id, class, name, style, title & CSS selectors</p>
+    </header>
+
+    <main class="container">
+        <!-- ATTRIBUTES OVERVIEW -->
+        <section class="section">
+            <h2>🏷️ HTML Element Attributes</h2>
+            <p class="description">Attributes memberikan informasi tambahan tentang elemen HTML dan mengontrol perilakunya.</p>
+
+            <table class="attributes-table">
+                <thead>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Contoh</th>
+                        <th>Deskripsi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>id</strong></td>
+                        <td><code>id="main-header"</code></td>
+                        <td>Unik per halaman · CSS #id · JS getElementById</td>
+                    </tr>
+                    <tr>
+                        <td><strong>class</strong></td>
+                        <td><code>class="card active"</code></td>
+                        <td>Bisa banyak · CSS .class · JS classList</td>
+                    </tr>
+                    <tr>
+                        <td><strong>name</strong></td>
+                        <td><code>name="username"</code></td>
+                        <td>Form data key · backend reference</td>
+                    </tr>
+                    <tr>
+                        <td><strong>style</strong></td>
+                        <td><code>style="color:red"</code></td>
+                        <td>Inline CSS — hindari, gunakan class</td>
+                    </tr>
+                    <tr>
+                        <td><strong>title</strong></td>
+                        <td><code>title="Tooltip text"</code></td>
+                        <td>Tooltip hover & accessibility</td>
+                    </tr>
+                    <tr>
+                        <td><strong>data-*</strong></td>
+                        <td><code>data-id="42"</code></td>
+                        <td>Custom data attr · JS dataset API</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ID ATTRIBUTE -->
+        <section class="section">
+            <h2>🆔 ID Attribute</h2>
+            <p class="description">Memberikan identifier UNIK ke elemen. Hanya satu ID per halaman untuk setiap nilai.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">&lt;h1 id="main-title"&gt;Welcome&lt;/h1&gt;
+&lt;section id="about-section"&gt;...&lt;/section&gt;
+
+/* CSS */
+#main-title { font-size: 2rem; color: blue; }
+
+/* JavaScript */
+const element = document.getElementById('main-title');
+element.style.color = 'red';</code>
+            </div>
+
+            <div class="attribute-demo">
+                <h3>Demo: ID Attribute</h3>
+                <div id="demo-id" class="demo-box">
+                    Elemen dengan id="demo-id"<br>
+                    <small>Bisa di-target dengan #demo-id di CSS</small>
+                </div>
+            </div>
+
+            <div class="tips-box">
+                <h4>💡 ID Best Practices:</h4>
+                <ul>
+                    <li>Gunakan ID untuk elemen UNIK (header, footer, main)</li>
+                    <li>ID harus unik di seluruh halaman</li>
+                    <li>Hindari ID untuk styling berulang → gunakan class</li>
+                    <li>ID bagus untuk anchor/link (href="#id")</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CLASS ATTRIBUTE -->
+        <section class="section">
+            <h2>🏷️ Class Attribute</h2>
+            <p class="description">Memberikan CLASS(es) ke elemen. Bisa multiple classes pada satu elemen.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">&lt;div class="card"&gt;...&lt;/div&gt;
+&lt;div class="card active"&gt;...&lt;/div&gt;
+&lt;div class="card disabled"&gt;...&lt;/div&gt;
+
+/* CSS */
+.card { padding: 1rem; border: 1px solid #ccc; }
+.card.active { border-color: blue; }
+.card.disabled { opacity: 0.5; }</code>
+            </div>
+
+            <div class="attribute-demo">
+                <h3>Demo: Class Attribute</h3>
+                <div class="demo-card">Card 1 (basic)</div>
+                <div class="demo-card active">Card 2 (active)</div>
+                <div class="demo-card disabled">Card 3 (disabled)</div>
+            </div>
+
+            <div class="tips-box">
+                <h4>💡 Class Best Practices:</h4>
+                <ul>
+                    <li>Gunakan class untuk styling berulang</li>
+                    <li>Bisa multiple classes: class="card active" ✓</li>
+                    <li>Nama class deskriptif: .card bukan .c1 ✓</li>
+                    <li>Hindari spaces dalam class name: .my-card ✓, .my card ✗</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- NAME ATTRIBUTE -->
+        <section class="section">
+            <h2>📝 Name Attribute</h2>
+            <p class="description">Digunakan pada form elements. Menjadi key ketika form di-submit ke server.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">&lt;form&gt;
+  &lt;input type="text" name="username" /&gt;
+  &lt;input type="password" name="password" /&gt;
+  &lt;textarea name="message"&gt;&lt;/textarea&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+/* Ketika form submit, data terkirim ke server: */
+{
+  "username": "john_doe",
+  "password": "secret123",
+  "message": "Hello!"
+}</code>
+            </div>
+
+            <div class="attribute-demo">
+                <h3>Demo: Name Attribute (Form)</h3>
+                <form class="demo-form" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" placeholder="Masukkan username">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="email@example.com">
+                    </div>
+                    <button type="submit" class="btn">Submit Form</button>
+                </form>
+            </div>
+
+            <div class="tips-box">
+                <h4>💡 Name Attribute:</h4>
+                <ul>
+                    <li>Wajib ada pada form inputs</li>
+                    <li>Nama harus unik dalam form</li>
+                    <li>Gunakan snake_case atau kebab-case</li>
+                    <li>Backend menggunakan name untuk mengambil value</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- TITLE ATTRIBUTE -->
+        <section class="section">
+            <h2>💬 Title Attribute</h2>
+            <p class="description">Menampilkan tooltip saat hover. Juga membantu accessibility (screen readers).</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">&lt;a href="#" title="Klik untuk info"&gt;Link dengan tooltip&lt;/a&gt;
+&lt;button title="Klik untuk submit"&gt;Submit&lt;/button&gt;
+&lt;img src="photo.jpg" alt="My Photo" title="Profile Picture"&gt;</code>
+            </div>
+
+            <div class="attribute-demo">
+                <h3>Demo: Title Attribute (Hover untuk tooltip)</h3>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#" class="demo-link" title="Ini adalah tooltip untuk link">Link dengan Tooltip</a>
+                    <button class="btn" title="Click untuk mengirim form">Submit Button</button>
+                    <span class="demo-span" title="Ini tooltip untuk span">Hover saya untuk tooltip</span>
+                </div>
+            </div>
+
+            <div class="tips-box">
+                <h4>💡 Title Attribute Tips:</h4>
+                <ul>
+                    <li>Jangan gunakan title untuk info penting (mungkin tidak terlihat di mobile)</li>
+                    <li>Gunakan untuk hints dan tambahan informasi</li>
+                    <li>Jangan duplicate dengan text element</li>
+                    <li>Penting untuk accessibility</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- DATA ATTRIBUTE -->
+        <section class="section">
+            <h2>📦 Data Attribute (data-*)</h2>
+            <p class="description">Custom attributes untuk menyimpan data yang bisa diakses dari JavaScript.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">&lt;div data-id="42" data-category="tech" data-status="active"&gt;
+  Product Card
+&lt;/div&gt;
+
+/* JavaScript - akses via dataset */
+const element = document.querySelector('div');
+element.dataset.id;        // "42"
+element.dataset.category;  // "tech"
+element.dataset.status;    // "active"
+
+/* atau akses via getAttribute */
+element.getAttribute('data-id');  // "42"</code>
+            </div>
+
+            <div class="attribute-demo">
+                <h3>Demo: Data Attribute</h3>
+                <div class="demo-data-box" data-product-id="101" data-price="29.99" data-category="electronics">
+                    <strong>Product Card</strong><br>
+                    data-product-id="101"<br>
+                    data-price="29.99"<br>
+                    data-category="electronics"
+                    <button class="btn btn-small" onclick="showDataAttributes(this)">Show Data</button>
+                </div>
+            </div>
+
+            <div class="tips-box">
+                <h4>💡 Data Attribute Best Practices:</h4>
+                <ul>
+                    <li>Gunakan untuk menyimpan data yang tidak ditampilkan</li>
+                    <li>Accessible via element.dataset API</li>
+                    <li>Berguna untuk event handlers dan JavaScript logic</li>
+                    <li>Hindari untuk data sensitif (visible di HTML)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- STYLE ATTRIBUTE -->
+        <section class="section">
+            <h2>🎨 Style Attribute (Inline CSS)</h2>
+            <p class="description">Inline CSS langsung di elemen. Hindari jika bisa — gunakan class untuk maintainability.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">&lt;div style="color: red; background-color: yellow; padding: 20px;"&gt;
+  Inline styled element
+&lt;/div&gt;
+
+/* BUKAN best practice! Lebih baik: */
+&lt;div class="highlight"&gt;Element dengan class&lt;/div&gt;
+
+/* CSS */
+.highlight { color: red; background-color: yellow; padding: 20px; }</code>
+            </div>
+
+            <div class="attribute-demo">
+                <h3>Demo: Style Attribute (Hindari!)</h3>
+                <div style="color: white; background-color: #FF6B6B; padding: 1rem; border-radius: 4px; text-align: center;">
+                    Elemen dengan inline style (style="...")<br>
+                    ⚠️ Hindari untuk production! Sulit untuk di-maintain
+                </div>
+            </div>
+
+            <div class="tips-box">
+                <h4>⚠️ Inline Style - Hindari Karena:</h4>
+                <ul>
+                    <li>Sulit untuk maintainability</li>
+                    <li>CSS Specificity tinggi → override lebih sulit</li>
+                    <li>Tidak reusable untuk elemen lain</li>
+                    <li>Mixing HTML & CSS tidak clean</li>
+                    <li>✓ Gunakan class di CSS file!</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- MULTIPLE ATTRIBUTES -->
+        <section class="section">
+            <h2>🎯 Real-World Example: Multiple Attributes</h2>
+
+            <div class="code-wrapper">
+                <code class="code-block">&lt;button 
+  id="submit-btn"
+  class="btn btn-primary"
+  name="submit"
+  type="submit"
+  title="Click untuk submit form"
+  data-action="submit"
+  data-tracking="form-submission"
+&gt;
+  Submit Form
+&lt;/button&gt;</code>
+            </div>
+
+            <div class="attribute-demo">
+                <h3>Demo: Button dengan Multiple Attributes</h3>
+                <button 
+                    id="submit-btn"
+                    class="btn btn-primary btn-large"
+                    name="submit"
+                    title="Click untuk submit form"
+                    data-action="submit"
+                    data-tracking="form-submission"
+                    onclick="handleMultipleAttributes()">
+                    Submit Form
+                </button>
+            </div>
+        </section>
+
+        <!-- CSS SELECTORS WITH ATTRIBUTES -->
+        <section class="section">
+            <h2>🎯 Attribute Selectors in CSS</h2>
+
+            <div class="code-wrapper">
+                <code class="code-block">/* Attribute presence */
+[type] { }              /* Elemen dengan attribute type */
+
+/* Attribute value */
+[type="text"] { }       /* type = "text" */
+[type="email"] { }      /* type = "email" */
+
+/* Attribute contains */
+[class*="btn"] { }      /* class berisi "btn" */
+[data-category*="tech"] { }
+
+/* Attribute starts with */
+[class^="btn"] { }      /* class dimulai dengan "btn" */
+
+/* Attribute ends with */
+[class$="-large"] { }   /* class akhir dengan "-large" */</code>
+            </div>
+
+            <div class="attribute-demo">
+                <h3>Demo: Attribute Selectors</h3>
+                <input type="text" placeholder="type=text">
+                <input type="email" placeholder="type=email">
+                <input type="password" placeholder="type=password">
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Web Basic Meet 1 - Topic 06: Element Attributes</p>
+    </footer>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            alert(`Form submitted! Username: ${username}`);
+        }
+
+        function showDataAttributes(element) {
+            const parent = element.closest('.demo-data-box');
+            alert(`Product ID: ${parent.dataset.productId}\nPrice: $${parent.dataset.price}\nCategory: ${parent.dataset.category}`);
+        }
+
+        function handleMultipleAttributes() {
+            alert('Button clicked!\nID: submit-btn\nName: submit\nData Action: submit');
+        }
+    </script>
+</body>
+</html>

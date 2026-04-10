@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 · The Holy Grail of Layouting</title>
+    <link rel="stylesheet" href="03-holy-grail-layouting.css">
+</head>
+<body>
+    <header class="header">
+        <h1>03 · The Holy Grail of Layouting</h1>
+        <p class="subtitle">Flexbox · CSS Grid · Advanced Layouts</p>
+    </header>
+
+    <main class="container">
+        <!-- FLEXBOX SECTION -->
+        <section class="section">
+            <h2>📱 FLEXBOX (1D Layout)</h2>
+            <p class="description">Layout satu arah dengan kontrol flow dan alignment yang fleksibel. Sempurna untuk navbar, button group, dan centering.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">display: flex;
+flex-direction: row | column;
+justify-content: center | space-between | space-around;
+align-items: center | stretch | flex-start;
+gap: 1rem;</code>
+            </div>
+
+            <div class="flexbox-demo">
+                <h3>Demo Flexbox (row, space-around, center)</h3>
+                <div class="flex-container">
+                    <div class="flex-item">Item 1</div>
+                    <div class="flex-item">Item 2</div>
+                    <div class="flex-item">Item 3</div>
+                    <div class="flex-item">Item 4</div>
+                </div>
+            </div>
+
+            <div class="flex-properties">
+                <h3>Flexbox Properties</h3>
+                <table class="properties-table">
+                    <tr>
+                        <td><strong>display: flex</strong></td>
+                        <td>Mengaktifkan flexbox layout</td>
+                    </tr>
+                    <tr>
+                        <td><strong>flex-direction</strong></td>
+                        <td>row (default) | column | row-reverse | column-reverse</td>
+                    </tr>
+                    <tr>
+                        <td><strong>justify-content</strong></td>
+                        <td>Alignment horizontal (main axis)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>align-items</strong></td>
+                        <td>Alignment vertikal (cross axis)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>gap</strong></td>
+                        <td>Jarak antar item</td>
+                    </tr>
+                    <tr>
+                        <td><strong>flex-wrap</strong></td>
+                        <td>wrap | nowrap (default)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>flex</strong></td>
+                        <td>Shorthand untuk grow, shrink, basis</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="use-cases">
+                <h3>✓ Cocok Untuk:</h3>
+                <ul>
+                    <li>Navbar dan navigation menu</li>
+                    <li>Button group dan toolbar</li>
+                    <li>Form input (vertical/horizontal)</li>
+                    <li>Centering elemen</li>
+                    <li>Simple card layout</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CSS GRID SECTION -->
+        <section class="section">
+            <h2>🎯 CSS GRID (2D Layout)</h2>
+            <p class="description">Layout dua arah dengan kontrol presisi terhadap row dan column. Sempurna untuk dashboard dan page layout.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">display: grid;
+grid-template-columns: 1fr 2fr 1fr;
+grid-template-rows: auto 1fr auto;
+grid-gap: 16px;
+grid-area: header | main | sidebar | footer;</code>
+            </div>
+
+            <div class="grid-demo">
+                <h3>Demo CSS Grid (3-column layout)</h3>
+                <div class="grid-container">
+                    <div class="grid-header">Header</div>
+                    <div class="grid-sidebar">Sidebar</div>
+                    <div class="grid-main">Main Content</div>
+                    <div class="grid-aside">Aside</div>
+                    <div class="grid-footer">Footer</div>
+                </div>
+            </div>
+
+            <div class="grid-properties">
+                <h3>CSS Grid Properties</h3>
+                <table class="properties-table">
+                    <tr>
+                        <td><strong>display: grid</strong></td>
+                        <td>Mengaktifkan grid layout</td>
+                    </tr>
+                    <tr>
+                        <td><strong>grid-template-columns</strong></td>
+                        <td>Definisikan width setiap column</td>
+                    </tr>
+                    <tr>
+                        <td><strong>grid-template-rows</strong></td>
+                        <td>Definisikan height setiap row</td>
+                    </tr>
+                    <tr>
+                        <td><strong>grid-gap / gap</strong></td>
+                        <td>Jarak antar grid items</td>
+                    </tr>
+                    <tr>
+                        <td><strong>grid-area</strong></td>
+                        <td>Assign item ke named grid area</td>
+                    </tr>
+                    <tr>
+                        <td><strong>grid-column / grid-row</strong></td>
+                        <td>Span elemen across multiple columns/rows</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="use-cases">
+                <h3>✓ Cocok Untuk:</h3>
+                <ul>
+                    <li>Dashboard dengan multiple panels</li>
+                    <li>Card/catalog layout</li>
+                    <li>Page layout (header, nav, content, sidebar, footer)</li>
+                    <li>Gallery dengan uniform grid</li>
+                    <li>Kompleks 2D layout yang presisi</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- COMPARISON -->
+        <section class="section">
+            <h2>⚖️ Flexbox vs CSS Grid</h2>
+            
+            <div class="comparison">
+                <div class="comp-card flexbox">
+                    <h3>Flexbox (1D)</h3>
+                    <ul>
+                        <li>Layout satu arah</li>
+                        <li>Fokus: flow & alignment</li>
+                        <li>Konten lebih fluid</li>
+                        <li>Items fleksibel</li>
+                        <li>Easier to use</li>
+                    </ul>
+                </div>
+                <div class="comp-card grid">
+                    <h3>CSS Grid (2D)</h3>
+                    <ul>
+                        <li>Layout dua arah</li>
+                        <li>Fokus: struktur & posisi</li>
+                        <li>Lebih presisi & konsisten</li>
+                        <li>Layout terstruktur</li>
+                        <li>Powerful untuk kompleks</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- BONUS: TABLE LAYOUT -->
+        <section class="section">
+            <h2>🎁 BONUS: Table Layout (Legacy)</h2>
+            <p class="description">display: table / table-row / table-cell — fallback untuk browser lama, berguna untuk vertical alignment.</p>
+
+            <div class="table-layout-demo">
+                <h3>Demo Table Layout (untuk vertical centering)</h3>
+                <div class="table-container">
+                    <div class="table-cell">Vertikal Centered dengan Table Layout</div>
+                </div>
+            </div>
+
+            <div class="tips-box">
+                <h4>⚠️ Catatan:</h4>
+                <p>Table layout hanya digunakan sebagai fallback untuk browser yang tidak support Flexbox/Grid. Untuk browser modern, gunakan Flexbox atau Grid!</p>
+            </div>
+        </section>
+
+        <!-- LAYOUT EXAMPLES -->
+        <section class="section">
+            <h2>🏗️ Layout Examples</h2>
+
+            <h3>1. Navbar dengan Flexbox</h3>
+            <div class="example-navbar">
+                <div class="nav-logo">Logo</div>
+                <div class="nav-items">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Services</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+
+            <h3>2. Card Grid dengan CSS Grid</h3>
+            <div class="card-grid">
+                <div class="card-item">Card 1</div>
+                <div class="card-item">Card 2</div>
+                <div class="card-item">Card 3</div>
+                <div class="card-item">Card 4</div>
+                <div class="card-item">Card 5</div>
+                <div class="card-item">Card 6</div>
+            </div>
+
+            <h3>3. Dashboard Layout</h3>
+            <div class="dashboard-grid">
+                <div class="dash-header">Dashboard Header</div>
+                <div class="dash-sidebar">Navigation</div>
+                <div class="dash-main">Main Content Area</div>
+                <div class="dash-footer">Footer</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Web Basic Meet 1 - Topic 03: The Holy Grail of Layouting</p>
+    </footer>
+</body>
+</html>

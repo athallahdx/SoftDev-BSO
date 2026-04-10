@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04 · Border, Margin & Padding</title>
+    <link rel="stylesheet" href="04-border-margin-padding.css">
+</head>
+<body>
+    <header class="header">
+        <h1>04 · Border, Margin & Padding</h1>
+        <p class="subtitle">Box model lebih detail — ukuran & jarak antar elemen</p>
+    </header>
+
+    <main class="container">
+        <!-- BOX MODEL LAYERS -->
+        <section class="section">
+            <h2>📦 Box Model Layers</h2>
+            <p class="description">Setiap elemen HTML memiliki 4 layer: margin, border, padding, dan content (dari luar ke dalam).</p>
+
+            <div class="boxmodel-visualization">
+                <div class="layer-outer">
+                    <span class="layer-label">MARGIN (outermost)</span>
+                    <div class="layer-border">
+                        <span class="layer-label">BORDER</span>
+                        <div class="layer-padding">
+                            <span class="layer-label">PADDING</span>
+                            <div class="layer-content">
+                                <span class="layer-label">CONTENT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="center-text">outside → in: MARGIN → BORDER → PADDING → CONTENT</p>
+        </section>
+
+        <!-- MARGIN -->
+        <section class="section">
+            <h2>↔️ MARGIN</h2>
+            <p class="description">Ruang TRANSPARAN di luar elemen (di luar border). Digunakan untuk memberi jarak antar elemen.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">margin: 20px;              /* semua sisi */
+margin: 10px 20px;         /* top/bottom 10px, left/right 20px */
+margin: 10px 20px 30px 40px;  /* top right bottom left */
+margin-top: 10px;
+margin-right: 20px;
+margin-bottom: 30px;
+margin-left: 40px;</code>
+            </div>
+
+            <div class="margin-examples">
+                <h3>Margin Examples:</h3>
+                <div class="example-container">
+                    <div class="example-box margin-20">margin: 20px</div>
+                    <div class="example-box margin-top-30">margin-top: 30px</div>
+                    <div class="example-box margin-40">margin: 40px</div>
+                </div>
+            </div>
+
+            <div class="tips-box">
+                <h4>💡 Margin Collapse:</h4>
+                <p>Margin vertikal antar elemen block akan collapse (tidak ditambah). Contoh: div dengan margin-bottom 20px di atas div dengan margin-top 30px = total margin 30px (bukan 50px).</p>
+            </div>
+        </section>
+
+        <!-- BORDER -->
+        <section class="section">
+            <h2>🖼️ BORDER</h2>
+            <p class="description">Garis TERLIHAT yang membatasi elemen. Bagian dari lebar/tinggi element jika box-sizing: border-box.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">border: 2px solid #58A6FF;
+border: [width] [style] [color];
+
+border-width: 2px;
+border-style: solid | dashed | dotted | double | groove | ridge | inset | outset;
+border-color: #58A6FF;
+
+border-top: 2px solid red;
+border-right: 2px dashed green;
+border-bottom: 2px dotted blue;
+border-left: 2px double orange;</code>
+            </div>
+
+            <div class="border-examples">
+                <h3>Border Examples:</h3>
+                <div class="example-container border-row">
+                    <div class="example-box border-solid">solid</div>
+                    <div class="example-box border-dashed">dashed</div>
+                    <div class="example-box border-dotted">dotted</div>
+                    <div class="example-box border-double">double</div>
+                </div>
+            </div>
+
+            <div class="border-radius-demo">
+                <h3>Border Radius:</h3>
+                <div class="example-container border-row">
+                    <div class="example-box border-radius-small">border-radius: 5px</div>
+                    <div class="example-box border-radius-medium">border-radius: 10px</div>
+                    <div class="example-box border-radius-large">border-radius: 20px</div>
+                    <div class="example-box border-radius-circle">border-radius: 50%</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PADDING -->
+        <section class="section">
+            <h2>📐 PADDING</h2>
+            <p class="description">Ruang DALAM elemen (di dalam border, di luar content). Digunakan untuk memberi ruang di dalam elemen.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">padding: 20px;              /* semua sisi */
+padding: 10px 20px;         /* top/bottom 10px, left/right 20px */
+padding: 10px 20px 30px 40px;  /* top right bottom left */
+padding-top: 10px;
+padding-right: 20px;
+padding-bottom: 30px;
+padding-left: 40px;</code>
+            </div>
+
+            <div class="padding-examples">
+                <h3>Padding Examples:</h3>
+                <div class="example-container">
+                    <div class="example-box padding-10">padding: 10px</div>
+                    <div class="example-box padding-20">padding: 20px</div>
+                    <div class="example-box padding-30">padding: 30px</div>
+                </div>
+            </div>
+
+            <div class="tips-box">
+                <h4>💡 Difference: Padding vs Margin</h4>
+                <ul>
+                    <li><strong>Padding:</strong> Ruang dalam (inside border) - background-color akan terisi</li>
+                    <li><strong>Margin:</strong> Ruang luar (outside border) - transparent, tidak terisi</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WIDTH & HEIGHT -->
+        <section class="section">
+            <h2>📏 WIDTH & HEIGHT</h2>
+            <p class="description">Ukuran konten elemen. Dapat dipengaruhi oleh padding dan border tergantung box-sizing.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">width: 300px;         /* fixed width */
+width: 50%;           /* percentage of parent */
+width: auto;          /* default */
+width: 100vw;         /* viewport width */
+
+height: 200px;        /* fixed height */
+height: auto;         /* default */
+height: 100vh;        /* full viewport height */
+
+max-width: 100%;      /* responsive max width */
+min-width: 100px;</code>
+            </div>
+
+            <div class="width-height-examples">
+                <h3>Width & Height Examples:</h3>
+                <div class="example-container">
+                    <div class="example-box size-fixed">300px × 100px (fixed)</div>
+                    <div class="example-box size-percent">50% × 100px</div>
+                    <div class="example-box size-auto">auto × auto</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOX SIZING -->
+        <section class="section">
+            <h2>📦 BOX SIZING</h2>
+            <p class="description">Menentukan apakah width/height hanya content, atau termasuk padding dan border.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">box-sizing: content-box;  /* default */
+width: 300px → hanya content, total lebih besar
+
+box-sizing: border-box;    /* include border & padding */
+width: 300px → include padding & border, lebih predictable</code>
+            </div>
+
+            <div class="box-sizing-comparison">
+                <h3>Box Sizing Comparison:</h3>
+                <div class="comparison-boxes">
+                    <div class="box-content-box">
+                        <h4>content-box (default)</h4>
+                        <div class="demo-box demo-content-box">300px width (hanya content)</div>
+                        <p>Actual width: 300px + 20px padding × 2 + 2px border × 2 = 344px</p>
+                    </div>
+                    <div class="box-border-box">
+                        <h4>border-box ✓ recommended</h4>
+                        <div class="demo-box demo-border-box">300px width (include all)</div>
+                        <p>Actual width: exactly 300px</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-box">
+                <h4>💡 Best Practice:</h4>
+                <p>Gunakan <code>* { box-sizing: border-box; }</code> di awal CSS file Anda untuk membuat sizing lebih predictable!</p>
+            </div>
+        </section>
+
+        <!-- ALL PROPERTIES REFERENCE -->
+        <section class="section">
+            <h2>📚 Box Model Properties Reference</h2>
+
+            <table class="properties-table">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Values</th>
+                        <th>Deskripsi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>margin</code></td>
+                        <td>px, %, em, auto</td>
+                        <td>Ruang luar elemen</td>
+                    </tr>
+                    <tr>
+                        <td><code>border</code></td>
+                        <td>width style color</td>
+                        <td>Garis pembatas</td>
+                    </tr>
+                    <tr>
+                        <td><code>padding</code></td>
+                        <td>px, %, em</td>
+                        <td>Ruang dalam elemen</td>
+                    </tr>
+                    <tr>
+                        <td><code>width</code></td>
+                        <td>px, %, auto, vw</td>
+                        <td>Lebar konten</td>
+                    </tr>
+                    <tr>
+                        <td><code>height</code></td>
+                        <td>px, %, auto, vh</td>
+                        <td>Tinggi konten</td>
+                    </tr>
+                    <tr>
+                        <td><code>box-sizing</code></td>
+                        <td>content-box, border-box</td>
+                        <td>Include padding/border dalam width/height?</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Web Basic Meet 1 - Topic 04: Border, Margin & Padding</p>
+    </footer>
+</body>
+</html>

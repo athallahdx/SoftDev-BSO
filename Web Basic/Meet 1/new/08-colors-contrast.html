@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08 · Colors & Contrast</title>
+    <link rel="stylesheet" href="08-colors-contrast.css">
+</head>
+<body>
+    <header class="header">
+        <h1>08 · Colors & Contrast</h1>
+        <p class="subtitle">Format warna, pemilihan palet & aksesibilitas</p>
+    </header>
+
+    <main class="container">
+        <!-- COLOR FORMATS -->
+        <section class="section">
+            <h2>🎨 Color Formats</h2>
+            <p class="description">Cara berbeda untuk mendefinisikan warna di CSS.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">/* HEX - Paling umum */
+color: #FF0000;     /* Red */
+color: #58A6FF;     /* Blue */
+color: #f0f;        /* Shorthand (3 digits) */
+
+/* RGB - Red Green Blue */
+color: rgb(255, 0, 0);      /* Red */
+color: rgb(88, 166, 255);   /* Blue */
+
+/* RGBA - RGB dengan opacity */
+color: rgba(255, 0, 0, 1);      /* Opaque red */
+color: rgba(255, 0, 0, 0.5);    /* 50% transparent red */
+
+/* HSL - Hue Saturation Lightness */
+color: hsl(0, 100%, 50%);       /* Red */
+color: hsl(212, 100%, 67%);     /* Blue */</code>
+            </div>
+
+            <div class="color-formats">
+                <div class="color-card">
+                    <div class="color-swatch hex-color"></div>
+                    <h3>HEX</h3>
+                    <code>#58A6FF</code>
+                    <p>Paling umum, 6 digit (atau 3 shorthand)</p>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch rgb-color"></div>
+                    <h3>RGB</h3>
+                    <code>rgb(88, 166, 255)</code>
+                    <p>Red, Green, Blue values 0-255</p>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch rgba-color"></div>
+                    <h3>RGBA</h3>
+                    <code>rgba(88, 166, 255, 0.8)</code>
+                    <p>RGB dengan opacity (0-1)</p>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-swatch hsl-color"></div>
+                    <h3>HSL</h3>
+                    <code>hsl(212, 100%, 67%)</code>
+                    <p>Hue, Saturation, Lightness (intuitif)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- COLOR PROPERTIES -->
+        <section class="section">
+            <h2>🖌️ Color Properties</h2>
+            <p class="description">CSS properties untuk mengaplikasikan warna pada elemen.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">/* Warna teks */
+color: #FF0000;
+
+/* Warna background */
+background-color: #FFD700;
+
+/* Warna border */
+border-color: #58A6FF;
+
+/* Shorthand untuk background */
+background: #FFF url(image.jpg) no-repeat center;</code>
+            </div>
+
+            <div class="color-properties">
+                <div class="property-demo color-text">
+                    <strong>color</strong><br>Warna teks
+                </div>
+                <div class="property-demo bg-color">
+                    <strong>background-color</strong><br>Warna background
+                </div>
+                <div class="property-demo border-color">
+                    <strong>border-color</strong><br>Warna border
+                </div>
+            </div>
+        </section>
+
+        <!-- COLOR PALETTE -->
+        <section class="section">
+            <h2>🎨 Color Palette</h2>
+            <p class="description">Contoh color palette untuk desain yang kohesif.</p>
+
+            <div class="palette">
+                <div class="palette-item primary">
+                    <span class="color-name">Primary</span>
+                    <span class="color-code">#58A6FF</span>
+                </div>
+                <div class="palette-item primary-dark">
+                    <span class="color-name">Primary Dark</span>
+                    <span class="color-code">#1E90FF</span>
+                </div>
+                <div class="palette-item secondary">
+                    <span class="color-name">Secondary</span>
+                    <span class="color-code">#4ECDC4</span>
+                </div>
+                <div class="palette-item accent">
+                    <span class="color-name">Accent</span>
+                    <span class="color-code">#FF6B6B</span>
+                </div>
+                <div class="palette-item light-bg">
+                    <span class="color-name">Light BG</span>
+                    <span class="color-code">#F8F9FA</span>
+                </div>
+                <div class="palette-item dark-text">
+                    <span class="color-name">Dark Text</span>
+                    <span class="color-code">#2D3748</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- COLOR CONTRAST -->
+        <section class="section">
+            <h2>♿ Color Contrast & Accessibility</h2>
+            <p class="description">WCAG 2.1: Contrast minimum AA = 4.5:1 untuk teks normal, 3:1 untuk teks besar.</p>
+
+            <div class="contrast-explanation">
+                <p><strong>Contrast Ratio:</strong> Perbandingan antara brightness teks dan background.</p>
+                <p><strong>Levels:</strong></p>
+                <ul>
+                    <li><strong>AAA:</strong> 7:1 atau lebih (enhanced contrast)</li>
+                    <li><strong>AA:</strong> 4.5:1 (standard, recommended)</li>
+                    <li><strong>Fail:</strong> Kurang dari 3:1</li>
+                </ul>
+            </div>
+
+            <div class="contrast-examples">
+                <div class="contrast-demo aaa-level">
+                    <div class="contrast-text">White on Black<br><small>Contrast: 21:1 (AAA)</small></div>
+                </div>
+
+                <div class="contrast-demo aa-level">
+                    <div class="contrast-text">Blue on Dark Gray<br><small>Contrast: 4.8:1 (AA)</small></div>
+                </div>
+
+                <div class="contrast-demo green-level">
+                    <div class="contrast-text">Green on Dark<br><small>Contrast: 7.2:1 (AAA)</small></div>
+                </div>
+
+                <div class="contrast-demo fail-level">
+                    <div class="contrast-text">Gray on Gray<br><small>Contrast: 1.5:1 (FAIL)</small></div>
+                </div>
+            </div>
+
+            <div class="tips-box">
+                <h4>✅ Accessibility Tips:</h4>
+                <ul>
+                    <li>Gunakan online contrast checker (e.g., WebAIM, Contrast Checker)</li>
+                    <li>Hindari hanya mengandalkan warna (gunakan text labels juga)</li>
+                    <li>Test dengan color blindness simulator</li>
+                    <li>Pastikan text selalu readable di semua background</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- WCAG COMPLIANCE -->
+        <section class="section">
+            <h2>📋 WCAG 2.1 Color Contrast Standards</h2>
+
+            <table class="contrast-table">
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Normal Text</th>
+                        <th>Large Text</th>
+                        <th>UI Components</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>AAA</strong></td>
+                        <td>7:1 ✓✓✓</td>
+                        <td>4.5:1 ✓✓✓</td>
+                        <td>3:1</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AA</strong></td>
+                        <td>4.5:1 ✓✓</td>
+                        <td>3:1 ✓✓</td>
+                        <td>3:1</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Below AA</strong></td>
+                        <td>&lt;4.5:1 ✗</td>
+                        <td>&lt;3:1 ✗</td>
+                        <td>&lt;3:1 ✗</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="color-tips">
+                <h3>Tips Memilih Warna yang Accessible:</h3>
+                <ul>
+                    <li>✓ Gunakan light text pada dark background atau sebaliknya</li>
+                    <li>✓ Hindari kombinasi warna yang mudah confusion (e.g., red-green untuk color blind users)</li>
+                    <li>✓ Test contrast menggunakan DevTools atau online tools</li>
+                    <li>✓ Jangan hanya mengandalkan warna untuk membedakan (gunakan icon/label juga)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- COLOR SCHEMES -->
+        <section class="section">
+            <h2>🎨 Color Schemes</h2>
+            <p class="description">Strategi pemilihan warna untuk design yang harmonis.</p>
+
+            <div class="color-schemes">
+                <div class="scheme">
+                    <h3>Monochromatic</h3>
+                    <p>Variasi satu warna</p>
+                    <div class="scheme-colors">
+                        <div style="background-color: #E8F0FF;"></div>
+                        <div style="background-color: #A8D5FF;"></div>
+                        <div style="background-color: #58A6FF;"></div>
+                        <div style="background-color: #1E90FF;"></div>
+                        <div style="background-color: #0B4B8C;"></div>
+                    </div>
+                </div>
+
+                <div class="scheme">
+                    <h3>Analogous</h3>
+                    <p>Warna yang berdekatan</p>
+                    <div class="scheme-colors">
+                        <div style="background-color: #4ECDC4;"></div>
+                        <div style="background-color: #58A6FF;"></div>
+                        <div style="background-color: #8B7CFF;"></div>
+                        <div style="background-color: #B366FF;"></div>
+                        <div style="background-color: #FF6B9D;"></div>
+                    </div>
+                </div>
+
+                <div class="scheme">
+                    <h3>Complementary</h3>
+                    <p>Warna yang berlawanan</p>
+                    <div class="scheme-colors">
+                        <div style="background-color: #58A6FF;"></div>
+                        <div style="background-color: #FFB347;"></div>
+                        <div style="background-color: #FF6B6B;"></div>
+                        <div style="background-color: #4ECDC4;"></div>
+                        <div style="background-color: #FFA45C;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GRADIENT COLORS -->
+        <section class="section">
+            <h2>🌈 Gradient Colors</h2>
+            <p class="description">Menggunakan gradien untuk visual yang lebih menarik.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">/* Linear Gradient */
+background: linear-gradient(to right, #FF0000, #00FF00);
+background: linear-gradient(45deg, #58A6FF, #1E90FF);
+
+/* Radial Gradient */
+background: radial-gradient(circle, #FF0000, #00FF00);
+
+/* Multiple Colors */
+background: linear-gradient(to right, red, yellow, lime);</code>
+            </div>
+
+            <div class="gradient-examples">
+                <div class="gradient grad-1">Linear to Right</div>
+                <div class="gradient grad-2">Diagonal 45deg</div>
+                <div class="gradient grad-3">Radial</div>
+                <div class="gradient grad-4">Multiple Colors</div>
+            </div>
+        </section>
+
+        <!-- PRACTICAL EXAMPLE -->
+        <section class="section">
+            <h2>🎯 Practical Color Application</h2>
+
+            <div class="practical-demo">
+                <button class="btn-demo btn-primary">Primary Button</button>
+                <button class="btn-demo btn-secondary">Secondary Button</button>
+                <button class="btn-demo btn-accent">Accent Button</button>
+                <button class="btn-demo btn-danger">Danger Button</button>
+
+                <div class="alert alert-info">
+                    <strong>Info:</strong> Informasi penting untuk diketahui pengguna
+                </div>
+
+                <div class="alert alert-success">
+                    <strong>Success!</strong> Operasi berhasil dilakukan
+                </div>
+
+                <div class="alert alert-warning">
+                    <strong>Warning:</strong> Perhatian, ada sesuatu yang mungkin salah
+                </div>
+
+                <div class="alert alert-danger">
+                    <strong>Error:</strong> Terjadi kesalahan, silakan coba lagi
+                </div>
+            </div>
+        </section>
+
+        <!-- COLOR TOOLS -->
+        <section class="section">
+            <h2>🛠️ Helpful Color Tools</h2>
+
+            <div class="tools-list">
+                <ul>
+                    <li><strong>Color Picker:</strong> Chrome DevTools, Figma Color Picker</li>
+                    <li><strong>Contrast Checker:</strong> WebAIM Contrast Checker, Coolors Contrast Checker</li>
+                    <li><strong>Color Palette Generator:</strong> Coolors.co, Adobe Color Wheel</li>
+                    <li><strong>Accessibility:</strong> WAVE, aXe DevTools, Lighthouse</li>
+                    <li><strong>Color Blind Simulator:</strong> Coblis, Accessible Colors</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Web Basic Meet 1 - Topic 08: Colors & Contrast</p>
+    </footer>
+</body>
+</html>

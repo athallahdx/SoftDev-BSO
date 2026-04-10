@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05 · Z-Index & Stacking Context</title>
+    <link rel="stylesheet" href="05-z-index.css">
+</head>
+<body>
+    <header class="header">
+        <h1>05 · Z-Index & Stacking Context</h1>
+        <p class="subtitle">Layer ordering & stacking — higher z-index = on top</p>
+    </header>
+
+    <main class="container">
+        <!-- Z-INDEX BASICS -->
+        <section class="section">
+            <h2>📚 Z-Index Basics</h2>
+            <p class="description">Z-index menentukan urutan stacking (layering) dari elemen. Semakin tinggi nilai, semakin di atas.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">z-index: 1;      /* nilai numerik */
+z-index: 10;
+z-index: 100;
+z-index: 9999;
+
+higher z-index = on top (lebih depan)
+lower z-index = at back (lebih belakang)</code>
+            </div>
+
+            <div class="zindex-example">
+                <h3>Interactive Z-Index Demo:</h3>
+                <p class="demo-instruction">Hover di atas box untuk melihat efeknya (hover menyebabkan z-index berubah)</p>
+                
+                <div class="zindex-container">
+                    <div class="zindex-box z-10" data-z="z-10">
+                        <span>Z-Index: 10</span>
+                        <small>position: relative</small>
+                    </div>
+                    <div class="zindex-box z-20" data-z="z-20">
+                        <span>Z-Index: 20</span>
+                        <small>position: relative</small>
+                    </div>
+                    <div class="zindex-box z-30" data-z="z-30">
+                        <span>Z-Index: 30</span>
+                        <small>position: relative</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-box">
+                <h4>📌 Penting!</h4>
+                <p><code>z-index HANYA bekerja pada positioned elements</code> (position: relative, absolute, fixed, sticky)</p>
+            </div>
+        </section>
+
+        <!-- POSITIONED ELEMENTS -->
+        <section class="section">
+            <h2>🎯 Z-Index dengan Positioned Elements</h2>
+            <p class="description">Z-index hanya bekerja jika elemen memiliki position property (bukan static).</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">/* Z-index bekerja pada: */
+position: relative;    /* z-index: 10; */ ✓
+position: absolute;    /* z-index: 20; */ ✓
+position: fixed;       /* z-index: 100; */ ✓
+position: sticky;      /* z-index: 5; */ ✓
+
+/* Z-index TIDAK bekerja pada: */
+position: static;      /* z-index: 999; */ ✗ (diabaikan)</code>
+            </div>
+
+            <div class="positioned-demo">
+                <h3>Demo: Z-Index dengan position</h3>
+                
+                <div class="demo-box">
+                    <div class="abs-box abs-box-1">
+                        position: absolute<br>z-index: 1
+                    </div>
+                    <div class="abs-box abs-box-2">
+                        position: absolute<br>z-index: 2
+                    </div>
+                    <div class="abs-box abs-box-3">
+                        position: absolute<br>z-index: 3
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STACKING CONTEXT -->
+        <section class="section">
+            <h2>📦 Stacking Context</h2>
+            <p class="description">Stacking context adalah "group" layering. Element di dalam stacking context baru hanya dibandingkan dengan sibling-nya, bukan dengan seluruh halaman.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">/* Stacking context dibuat oleh: */
+1. position + z-index (bukan auto)
+2. opacity < 1
+3. transform yang bukan none
+4. filter yang bukan none
+5. will-change property
+6. mix-blend-mode bukan normal
+7. Banyak lainnya...</code>
+            </div>
+
+            <div class="stacking-demo">
+                <h3>Stacking Context Example:</h3>
+                
+                <div class="stack-parent parent-1">
+                    <h4>Parent 1 (no stacking context)</h4>
+                    <div class="stack-child child-100">
+                        z-index: 100<br>di dalam parent 1
+                    </div>
+                </div>
+
+                <div class="stack-parent parent-2" style="opacity: 0.9;">
+                    <h4>Parent 2 (opacity: 0.9 → new stacking context)</h4>
+                    <div class="stack-child child-50">
+                        z-index: 50<br>di dalam parent 2<br>
+                        <small>(parent 2's z-index = 1)</small>
+                    </div>
+                </div>
+
+                <p class="demo-note">Child dengan z-index 100 di parent 1 akan DIBAWAH child dengan z-index 50 di parent 2 karena parent 2 membuat stacking context baru!</p>
+            </div>
+        </section>
+
+        <!-- POSITION VALUES WITH Z-INDEX -->
+        <section class="section">
+            <h2>🔀 Position Values & Z-Index Layers</h2>
+
+            <div class="position-layers">
+                <div class="layer-card">
+                    <h3>Layer 3: Fixed (Top)</h3>
+                    <code>position: fixed; z-index: 100;</code>
+                    <p>Tetap di viewport bahkan saat scroll</p>
+                </div>
+                <div class="layer-card">
+                    <h3>Layer 2: Absolute/Relative</h3>
+                    <code>position: absolute; z-index: 50;</code>
+                    <p>Bisa bergerak relatif ke parent atau document</p>
+                </div>
+                <div class="layer-card">
+                    <h3>Layer 1: Static (Bottom)</h3>
+                    <code>position: static; /* z-index: auto */</code>
+                    <p>Normal flow, z-index diabaikan</p>
+                </div>
+            </div>
+
+            <div class="fixed-example">
+                <div class="fixed-box">
+                    <strong>Fixed Element</strong><br>
+                    Akan selalu di atas (z-index: 999)<br>
+                    Lihat saat scroll
+                </div>
+            </div>
+        </section>
+
+        <!-- KEY RULES -->
+        <section class="section">
+            <h2>✅ Key Rules & Best Practices</h2>
+
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <h3>✓ DO</h3>
+                    <ul>
+                        <li>Gunakan z-index hanya ketika diperlukan</li>
+                        <li>Gunakan z-index values dengan spacing (10, 20, 30)</li>
+                        <li>Dokumentasikan z-index usage</li>
+                        <li>Gunakan positioning (relative/absolute/fixed)</li>
+                        <li>Pertimbangkan stacking context</li>
+                    </ul>
+                </div>
+                <div class="rule-card warning-card">
+                    <h3>✗ DON'T</h3>
+                    <ul>
+                        <li>Jangan gunakan z-index: 9999! (anti-pattern)</li>
+                        <li>Jangan gunakan z-index pada static elements</li>
+                        <li>Jangan buat z-index war (kompetisi)</li>
+                        <li>Jangan asumsikan stacking context</li>
+                        <li>Jangan lupa aboutbrowser compatibility</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRACTICAL EXAMPLES -->
+        <section class="section">
+            <h2>🎯 Practical Examples</h2>
+
+            <h3>Example 1: Modal Overlay</h3>
+            <div class="modal-example">
+                <button class="btn-modal" onclick="alert('Modal would appear with high z-index')">Open Modal</button>
+                <p><small>In real use: modal overlay z-index: 999, modal box z-index: 1000</small></p>
+            </div>
+
+            <h3>Example 2: Dropdown Menu</h3>
+            <div class="dropdown-example">
+                <div class="dropdown">
+                    <button class="dropdown-btn">Dropdown Menu</button>
+                    <div class="dropdown-content">
+                        <a href="#">Option 1</a>
+                        <a href="#">Option 2</a>
+                        <a href="#">Option 3</a>
+                    </div>
+                </div>
+                <p><small>Dropdown needs z-index > other elements</small></p>
+            </div>
+
+            <h3>Example 3: Sticky Header</h3>
+            <div class="sticky-demo">
+                <div class="sticky-header">Sticky Header (z-index: 100)</div>
+                <p>Content... scroll melihat sticky header tetap di atas</p>
+            </div>
+        </section>
+
+        <!-- Z-INDEX CALCULATOR -->
+        <section class="section">
+            <h2>🧮 Z-Index Values Reference</h2>
+
+            <table class="zindex-table">
+                <thead>
+                    <tr>
+                        <th>Element Type</th>
+                        <th>Recommended z-index</th>
+                        <th>Alasan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Body content</td>
+                        <td>1 - 10</td>
+                        <td>Default/base layer</td>
+                    </tr>
+                    <tr>
+                        <td>Dropdown/Tooltip</td>
+                        <td>100 - 200</td>
+                        <td>Harus di atas content</td>
+                    </tr>
+                    <tr>
+                        <td>Modal overlay</td>
+                        <td>900 - 950</td>
+                        <td>Blurs background</td>
+                    </tr>
+                    <tr>
+                        <td>Modal box</td>
+                        <td>1000 - 1050</td>
+                        <td>Di atas overlay</td>
+                    </tr>
+                    <tr>
+                        <td>Toast/Notification</td>
+                        <td>1100 - 1200</td>
+                        <td>Top priority</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Web Basic Meet 1 - Topic 05: Z-Index & Stacking Context</p>
+    </footer>
+</body>
+</html>

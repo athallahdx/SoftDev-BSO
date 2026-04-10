@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07 · Typography & Readability</title>
+    <link rel="stylesheet" href="07-typography-readability.css">
+</head>
+<body>
+    <header class="header">
+        <h1>07 · Typography & Readability</h1>
+        <p class="subtitle">Font, spacing & visual hierarchy yang bersih</p>
+    </header>
+
+    <main class="container">
+        <!-- FONT SIZE -->
+        <section class="section">
+            <h2>🔤 Font Size</h2>
+            <p class="description">Ukuran font menentukan hierarchy dan readability. Rekomendasi: 16px body, 24–48px heading.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">font-size: 12px;    /* Terlalu kecil untuk body */
+font-size: 16px;    /* ✓ Standard untuk body text */
+font-size: 18px;    /* Slightly larger body */
+font-size: 24px;    /* Small heading */
+font-size: 32px;    /* Medium heading */
+font-size: 48px;    /* Large heading / H1 */</code>
+            </div>
+
+            <div class="typography-demo">
+                <div class="font-size-demo">
+                    <p class="fs-12">Font size 12px - Terlalu kecil</p>
+                    <p class="fs-16">Font size 16px - Standard body ✓</p>
+                    <p class="fs-20">Font size 20px - Slightly larger</p>
+                    <p class="fs-24">Font size 24px - Heading 3</p>
+                    <p class="fs-32">Font size 32px - Heading 2</p>
+                    <p class="fs-48">Font size 48px - Heading 1</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FONT FAMILY -->
+        <section class="section">
+            <h2>🎨 Font Family</h2>
+            <p class="description">Jenis font mempengaruhi tone dan readability. Gunakan web-safe fonts atau Google Fonts.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">/* San-serif (modern, clean) */
+font-family: Arial, Helvetica, sans-serif;
+font-family: 'Segoe UI', Tahoma, Geneva;
+
+/* Serif (traditional, formal) */
+font-family: Georgia, 'Times New Roman', serif;
+
+/* Monospace (code, teletype) */
+font-family: 'Courier New', monospace;
+font-family: 'Fira Code', monospace;</code>
+            </div>
+
+            <div class="typography-demo">
+                <div class="font-family-demo">
+                    <p class="ff-sans">San-serif Font - Arial, Helvetica (clean & modern) ✓</p>
+                    <p class="ff-serif">Serif Font - Georgia (traditional & formal)</p>
+                    <p class="ff-mono">Monospace Font - Courier (untuk code)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FONT WEIGHT -->
+        <section class="section">
+            <h2>⚖️ Font Weight</h2>
+            <p class="description">Ketebalan font. Standar: 400 (normal) dan 700 (bold).</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">font-weight: 300;  /* Light */
+font-weight: 400;  /* Normal (default) ✓ */
+font-weight: 500;  /* Medium */
+font-weight: 600;  /* Semibold */
+font-weight: 700;  /* Bold ✓ */
+font-weight: 800;  /* Extra bold */
+font-weight: bold; /* = 700 */
+font-weight: normal; /* = 400 */</code>
+            </div>
+
+            <div class="typography-demo">
+                <div class="font-weight-demo">
+                    <p class="fw-300">Font weight 300 - Light</p>
+                    <p class="fw-400">Font weight 400 - Normal (default)</p>
+                    <p class="fw-500">Font weight 500 - Medium</p>
+                    <p class="fw-600">Font weight 600 - Semibold</p>
+                    <p class="fw-700">Font weight 700 - Bold</p>
+                    <p class="fw-800">Font weight 800 - Extra Bold</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LINE HEIGHT -->
+        <section class="section">
+            <h2>📏 Line Height</h2>
+            <p class="description">Jarak antar baris teks. Rekomendasi: 1.5–1.8 untuk body text.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">line-height: 1;     /* Terlalu rapat */
+line-height: 1.2;   /* Untuk heading */
+line-height: 1.5;   /* ✓ Standard body */
+line-height: 1.8;   /* Lebih spacious */
+line-height: 2;     /* Terlalu jauh */
+line-height: 24px;  /* Absolute value */</code>
+            </div>
+
+            <div class="typography-demo">
+                <div class="line-height-demo">
+                    <div class="lh-100">
+                        <h4>line-height: 1.0 (terlalu rapat)</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                    </div>
+
+                    <div class="lh-150">
+                        <h4>line-height: 1.5 (standard) ✓</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                    </div>
+
+                    <div class="lh-180">
+                        <h4>line-height: 1.8 (spacious)</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LETTER SPACING -->
+        <section class="section">
+            <h2>➡️ Letter Spacing</h2>
+            <p class="description">Jarak antar karakter (tracking). Rekomendasi: 0–0.1em.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">letter-spacing: -0.05em;  /* Terlalu rapat */
+letter-spacing: 0;          /* Normal (default) */
+letter-spacing: 0.05em;     /* Sedikit lebih lebar */
+letter-spacing: 0.1em;      /* Noticeably wider */
+letter-spacing: 0.2em;      /* Terlalu jauh */</code>
+            </div>
+
+            <div class="typography-demo">
+                <div class="letter-spacing-demo">
+                    <p class="ls-negative">Letter spacing -0.05em (terlalu rapat)</p>
+                    <p class="ls-normal">Letter spacing 0 (normal - default) ✓</p>
+                    <p class="ls-small">Letter spacing 0.05em (sedikit lebih lebar)</p>
+                    <p class="ls-medium">Letter spacing 0.1em (noticeably wider)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEXT ALIGN -->
+        <section class="section">
+            <h2>↔️ Text Alignment</h2>
+            <p class="description">Alignment teks. Rekomendasi: left untuk body, center untuk header.</p>
+
+            <div class="code-wrapper">
+                <code class="code-block">text-align: left;      /* ✓ Standard untuk body */
+text-align: center;    /* Untuk header, titles */
+text-align: right;     /* Jarang digunakan */
+text-align: justify;   /* Hindari - sulit dibaca */</code>
+            </div>
+
+            <div class="typography-demo">
+                <div class="text-align-demo">
+                    <div class="ta-left">
+                        <h4>text-align: left (standard) ✓</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+
+                    <div class="ta-center">
+                        <h4>text-align: center (headers)</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+
+                    <div class="ta-right">
+                        <h4>text-align: right (jarang)</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISUAL HIERARCHY -->
+        <section class="section">
+            <h2>🎯 Visual Hierarchy</h2>
+            <p class="description">Gunakan ukuran, weight, dan color untuk membuat hierarchy yang jelas: H1 > H2 > H3 > body text.</p>
+
+            <div class="hierarchy-example">
+                <h1 class="hierarchy-h1">Main Headline (H1)</h1>
+                <p class="hierarchy-intro">Intro paragraph dengan sedikit lebih besar dari body untuk emphasis.</p>
+
+                <h2 class="hierarchy-h2">Section Title (H2)</h2>
+                <p class="hierarchy-body">Regular body paragraph - ini adalah ukuran normal. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+                <h3 class="hierarchy-h3">Subsection (H3)</h3>
+                <p class="hierarchy-body">Lebih banyak body text. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+
+                <h4 class="hierarchy-h4">Detail Level (H4)</h4>
+                <p class="hierarchy-body">Detail text dalam H4. Quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodo consequat.</p>
+
+                <small class="hierarchy-small">Small/footnote text - untuk secondary information.</small>
+            </div>
+
+            <div class="tips-box">
+                <h4>💡 Hierarchy Best Practices:</h4>
+                <ul>
+                    <li>Gunakan hanya satu H1 per halaman (untuk judul utama)</li>
+                    <li>Urutkan heading dari H1 → H2 → H3 (jangan skip level)</li>
+                    <li>Contrast ukuran yang jelas membantu user scan halaman</li>
+                    <li>Font weight lebih tebal untuk hierarchy lebih tinggi</li>
+                    <li>Color juga bisa menunjukkan hierarchy</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- TYPOGRAPHY PROPERTIES REFERENCE -->
+        <section class="section">
+            <h2>📚 Typography Properties Reference</h2>
+
+            <table class="properties-table">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Rekomendasi</th>
+                        <th>Deskripsi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>font-size</code></td>
+                        <td>16px body · 24–48px heading</td>
+                        <td>Ukuran font</td>
+                    </tr>
+                    <tr>
+                        <td><code>font-family</code></td>
+                        <td>sans-serif, monospace, serif</td>
+                        <td>Jenis font</td>
+                    </tr>
+                    <tr>
+                        <td><code>font-weight</code></td>
+                        <td>400 normal · 700 bold</td>
+                        <td>Ketebalan font</td>
+                    </tr>
+                    <tr>
+                        <td><code>line-height</code></td>
+                        <td>1.5–1.8</td>
+                        <td>Jarak antar baris</td>
+                    </tr>
+                    <tr>
+                        <td><code>letter-spacing</code></td>
+                        <td>0–0.1em</td>
+                        <td>Jarak antar karakter</td>
+                    </tr>
+                    <tr>
+                        <td><code>text-align</code></td>
+                        <td>left (body) · center (header)</td>
+                        <td>Alignment teks</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- PRACTICAL EXAMPLE -->
+        <section class="section">
+            <h2>🎯 Practical Typography Example</h2>
+
+            <div class="article-example">
+                <article>
+                    <header>
+                        <h1>The Power of Good Typography</h1>
+                        <p class="article-meta">Published on April 10, 2024 · By John Doe</p>
+                    </header>
+
+                    <p class="article-intro"><strong>Good typography isn't just about making text look pretty.</strong> It's about communicating effectively and making content easy to read.</p>
+
+                    <h2>Why Typography Matters</h2>
+                    <p>Typography affects how users perceive your content. Poor typography can make even great content hard to read and understand. Good typography, on the other hand, guides the reader through your content smoothly.</p>
+
+                    <h3>Key Principles</h3>
+                    <ol>
+                        <li><strong>Hierarchy:</strong> Use size and weight to show importance</li>
+                        <li><strong>Readability:</strong> Choose readable fonts and sizes</li>
+                        <li><strong>Consistency:</strong> Maintain consistent spacing and sizing</li>
+                        <li><strong>Contrast:</strong> Ensure text stands out from background</li>
+                    </ol>
+
+                    <h2>Best Practices</h2>
+                    <p>When designing typography, remember these best practices:</p>
+                    <ul>
+                        <li>Use 16px+ for body text on desktop</li>
+                        <li>Keep line height between 1.5–1.8 for readability</li>
+                        <li>Limit to 2–3 fonts per design</li>
+                        <li>Ensure sufficient contrast for accessibility</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Web Basic Meet 1 - Topic 07: Typography & Readability</p>
+    </footer>
+</body>
+</html>

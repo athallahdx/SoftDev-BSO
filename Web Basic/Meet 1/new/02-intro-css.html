@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 · An Intro to CSS</title>
+    <link rel="stylesheet" href="02-intro-css.css">
+</head>
+<body>
+    <header class="header">
+        <h1>02 · An Intro to CSS</h1>
+        <p class="subtitle">Styling the web — colors, fonts & box model</p>
+    </header>
+
+    <main class="container">
+        <!-- THREE WAYS TO APPLY CSS -->
+        <section class="section">
+            <h2>🎨 Three Ways to Apply CSS</h2>
+            
+            <div class="three-methods">
+                <div class="method-card inline-card">
+                    <h3>Inline CSS</h3>
+                    <code>style="color:red"</code>
+                    <p>Langsung di tag HTML</p>
+                    <div class="demo-inline" style="color: red; font-weight: bold;">
+                        Teks dengan inline style
+                    </div>
+                    <p class="warning">⚠️ Hindari jika bisa! Sulit untuk di-maintain.</p>
+                </div>
+
+                <div class="method-card internal-card">
+                    <h3>Internal CSS</h3>
+                    <code>&lt;style&gt; ... &lt;/style&gt;</code>
+                    <p>Di dalam &lt;head&gt;</p>
+                    <div class="demo-internal">
+                        Teks dengan internal style
+                    </div>
+                    <p class="info">ℹ️ Baik untuk halaman kecil dengan sedikit styling.</p>
+                </div>
+
+                <div class="method-card external-card">
+                    <h3>External CSS</h3>
+                    <code>&lt;link rel="stylesheet"&gt;</code>
+                    <p>File .css terpisah</p>
+                    <div class="demo-external">
+                        Teks dengan external style
+                    </div>
+                    <p class="success">✓ Best Practice! Mudah di-maintain dan reusable.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CSS SELECTORS -->
+        <section class="section">
+            <h2>🎯 CSS Selectors</h2>
+            
+            <div class="selectors-grid">
+                <div class="selector-item">
+                    <h3>Element Selector</h3>
+                    <code class="selector-code">p { color: blue; }</code>
+                    <div class="selector-demo element-selector">
+                        Ini adalah paragraf yang diselector dengan element selector
+                    </div>
+                    <p>Memilih semua elemen &lt;p&gt;</p>
+                </div>
+
+                <div class="selector-item">
+                    <h3>Class Selector</h3>
+                    <code class="selector-code">.highlight { background: yellow; }</code>
+                    <div class="selector-demo class-selector">
+                        Ini adalah elemen dengan class highlight
+                    </div>
+                    <p>Memilih elemen dengan class tertentu</p>
+                </div>
+
+                <div class="selector-item">
+                    <h3>ID Selector</h3>
+                    <code class="selector-code">#main-title { font-size: 2rem; }</code>
+                    <div class="selector-demo" id="main-title-demo">
+                        Ini adalah elemen dengan ID tertentu
+                    </div>
+                    <p>Memilih elemen dengan ID unik</p>
+                </div>
+
+                <div class="selector-item">
+                    <h3>Pseudo-class Selector</h3>
+                    <code class="selector-code">a:hover { color: red; }</code>
+                    <a href="#" class="hover-demo">Hover link ini untuk melihat efek</a>
+                    <p>Memilih elemen dalam state tertentu</p>
+                </div>
+
+                <div class="selector-item">
+                    <h3>Descendant Selector</h3>
+                    <code class="selector-code">div p { color: green; }</code>
+                    <div class="descendant-demo">
+                        <p>Paragraf di dalam div (affected by descendant selector)</p>
+                    </div>
+                    <p>Memilih elemen yang merupakan turunan dari elemen lain</p>
+                </div>
+
+                <div class="selector-item">
+                    <h3>Child Selector</h3>
+                    <code class="selector-code">ul > li { margin: 5px; }</code>
+                    <ul class="child-selector-demo">
+                        <li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                    </ul>
+                    <p>Memilih elemen yang adalah child langsung</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOX MODEL BASICS -->
+        <section class="section">
+            <h2>📦 Box Model Basics</h2>
+            
+            <p class="description">Setiap elemen HTML memiliki box model yang terdiri dari margin, border, padding, dan content.</p>
+
+            <div class="boxmodel-explanation">
+                <code class="code-block">margin  → border  → padding  → [ content ]</code>
+            </div>
+
+            <div class="boxmodel-visual">
+                <div class="boxmodel-demo">
+                    <div class="content-box">Content</div>
+                </div>
+                <p class="boxmodel-label">margin (transparent) → border → padding → content</p>
+            </div>
+
+            <div class="properties-grid">
+                <div class="property-card">
+                    <h3>color</h3>
+                    <code>color: #FF0000;</code>
+                    <div class="demo-property" style="color: #FF0000;">
+                        Warna teks
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3>background-color</h3>
+                    <code>background-color: #FFD700;</code>
+                    <div class="demo-property" style="background-color: #FFD700;">
+                        Latar belakang elemen
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3>font-family</h3>
+                    <code>font-family: Arial, sans-serif;</code>
+                    <div class="demo-property" style="font-family: Arial, sans-serif;">
+                        Tipe font berubah
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3>font-size</h3>
+                    <code>font-size: 24px;</code>
+                    <div class="demo-property" style="font-size: 24px;">
+                        Ukuran font lebih besar
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3>font-weight</h3>
+                    <code>font-weight: bold;</code>
+                    <div class="demo-property" style="font-weight: bold;">
+                        Teks menjadi tebal
+                    </div>
+                </div>
+
+                <div class="property-card">
+                    <h3>margin</h3>
+                    <code>margin: 20px;</code>
+                    <div class="demo-property" style="margin: 20px; background-color: #FFD700;">
+                        Ruang luar bertambah
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CSS SPECIFICITY -->
+        <section class="section">
+            <h2>🔢 CSS Specificity (Prioritas)</h2>
+            
+            <p class="description">CSS Specificity menentukan rule mana yang lebih diprioritaskan ketika ada conflict.</p>
+
+            <div class="specificity-chart">
+                <div class="specificity-item">
+                    <div class="spec-score">1</div>
+                    <strong>Element Selector</strong>
+                    <code>p { }</code>
+                </div>
+                <div class="specificity-item">
+                    <div class="spec-score">10</div>
+                    <strong>Class Selector</strong>
+                    <code>.class { }</code>
+                </div>
+                <div class="specificity-item">
+                    <div class="spec-score">100</div>
+                    <strong>ID Selector</strong>
+                    <code>#id { }</code>
+                </div>
+                <div class="specificity-item">
+                    <div class="spec-score">1000</div>
+                    <strong>Inline Style</strong>
+                    <code>style=""</code>
+                </div>
+            </div>
+
+            <div class="specificity-example">
+                <h3>Contoh:</h3>
+                <code class="code-block">/* Specificity: 1 */
+p { color: blue; }
+
+/* Specificity: 10 — akan override p */
+.highlight { color: yellow; }
+
+/* Specificity: 100 — akan override .highlight */
+#special { color: red; }
+
+/* Specificity: 1000 — akan override semuanya */
+&lt;p style="color: green;"&gt;Teks ini hijau&lt;/p&gt;</code>
+            </div>
+        </section>
+
+        <!-- COMMON PROPERTIES -->
+        <section class="section">
+            <h2>💾 Common CSS Properties</h2>
+            
+            <table class="properties-table">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Contoh</th>
+                        <th>Deskripsi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>color</code></td>
+                        <td><code>#FF0000</code></td>
+                        <td>Warna teks</td>
+                    </tr>
+                    <tr>
+                        <td><code>background-color</code></td>
+                        <td><code>#FFD700</code></td>
+                        <td>Warna latar belakang</td>
+                    </tr>
+                    <tr>
+                        <td><code>font-size</code></td>
+                        <td><code>16px</code></td>
+                        <td>Ukuran font</td>
+                    </tr>
+                    <tr>
+                        <td><code>font-family</code></td>
+                        <td><code>Arial</code></td>
+                        <td>Jenis font</td>
+                    </tr>
+                    <tr>
+                        <td><code>margin</code></td>
+                        <td><code>10px</code></td>
+                        <td>Ruang di luar elemen</td>
+                    </tr>
+                    <tr>
+                        <td><code>padding</code></td>
+                        <td><code>10px</code></td>
+                        <td>Ruang di dalam elemen</td>
+                    </tr>
+                    <tr>
+                        <td><code>border</code></td>
+                        <td><code>1px solid</code></td>
+                        <td>Garis pembatas elemen</td>
+                    </tr>
+                    <tr>
+                        <td><code>text-align</code></td>
+                        <td><code>center</code></td>
+                        <td>Alignment teks</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Web Basic Meet 1 - Topic 02: An Intro to CSS</p>
+    </footer>
+</body>
+</html>
